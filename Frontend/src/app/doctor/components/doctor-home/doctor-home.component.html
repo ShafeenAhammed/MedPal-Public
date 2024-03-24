@@ -1,0 +1,53 @@
+<div class="doctor-profile">
+  
+  <div class="profile-info">
+    <div class="info-left">
+      <img [src]="[doctorDetails?.doctorImage]" alt="[Doctor Name] - Image">
+    </div>
+    <div class="info-right">
+      <h2>{{ doctorDetails.name }}</h2>
+      <p class="details">{{ doctorDetails.specialization }}</p>
+      <p class="details">Age: {{ doctorDetails.age }}</p>
+      <p class="details">Experience: {{ doctorDetails.experience }} years</p>
+      <p class="details">License: {{ doctorDetails.license }}</p>
+      <p class="details">Current Hospital: {{ doctorDetails.currentHospital }}</p>
+      <p class="details">Fees: RS.{{ doctorDetails.fees }}</p>
+    </div>
+    <p class="bio">{{ doctorDetails.about }}</p>
+  </div>
+
+  <div class="appointments-section">
+    <div class="box" style="text-align: center; justify-content: center;">
+      <h2>Total Appointments</h2>
+      <h2>{{ totalAppointments }}</h2>
+    </div>
+  
+    <div *ngIf="currentAppointment" class="box">
+      <h2>Current Appointment</h2>
+      <p><strong>Customer Name:</strong> {{ currentAppointment.customerName }}</p>
+      <p><strong>Start Time:</strong> {{ currentAppointment.timeSlot.startTime | date:'short' }}</p>
+      <p><strong>End Time:</strong> {{ currentAppointment.timeSlot.endTime | date:'short' }}</p>
+      <div class="button-container">
+        <button mat-raised-button color="primary" *ngIf="currentAppointment.appoinmentStatus === 'Pending' && isCallTime(currentAppointment)" [routerLink]="['/doctor/video-call']" [queryParams]="{ appoinmentId: currentAppointment.appoinmentId,name:currentAppointment.doctorName}">Start Call</button>
+      </div>
+    </div>
+    
+    <div *ngIf="upcomingAppointment" class="box">
+      <h2>Upcoming Appointment</h2>
+      <p><strong>Customer Name:</strong> {{ upcomingAppointment.customerName }}</p>
+      <p><strong>Start Time:</strong> {{ upcomingAppointment.timeSlot.startTime | date:'short' }}</p>
+      <p><strong>End Time:</strong> {{ upcomingAppointment.timeSlot.endTime | date:'short' }}</p>
+      <div class="button-container">
+        <button mat-raised-button color="primary" *ngIf="upcomingAppointment.appoinmentStatus === 'Pending' && isCallTime(upcomingAppointment)" [routerLink]="['/doctor/video-call']" [queryParams]="{ appoinmentId: upcomingAppointment.appoinmentId,name:upcomingAppointment.doctorName}">Start Call</button>
+      </div>
+    </div>
+
+    <div *ngIf="!currentAppointment && !upcomingAppointment" class="nil-box" style="text-align: center;">
+      <h2>No Appointments</h2>
+      <p>There are no current or upcoming appointments.</p>
+    </div>
+
+  </div>
+
+
+</div>

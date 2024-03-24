@@ -1,0 +1,222 @@
+<div *ngIf="isMenuVisible">
+    <mat-toolbar color="primary">
+  
+        <!-- <ng-container *ngIf="isSideNav">
+          <button mat-icon-button (click)="toggleNavbar()" class="md:hidden">
+              <mat-icon>menu</mat-icon>
+          </button>
+        </ng-container>   -->
+      
+        <span class="logo">
+          <ng-container *ngIf="role === 'Customer'">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" routerLink="user-home" />
+            <span class="text-xl font-bold" style="white-space: nowrap;">MedPal</span>
+          </ng-container>
+          <ng-container *ngIf="role === 'Admin'">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" routerLink="admin-home" />
+            <span class="text-xl font-bold" style="white-space: nowrap;">MedPal</span>
+          </ng-container>
+          <ng-container *ngIf="role === 'Medical Store'">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" routerLink="medicalstore-home"/>
+            <span class="text-xl font-bold" style="white-space: nowrap;">MedPal</span>
+          </ng-container>
+          <ng-container *ngIf="role === 'Doctor'">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" routerLink="doctor-home"/>
+            <span class="text-xl font-bold" style="white-space: nowrap;">MedPal</span>
+          </ng-container>
+          <ng-container *ngIf="role === ''">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" routerLink=""/>
+            <span class="text-xl font-bold" style="white-space: nowrap;">MedPal</span>
+          </ng-container>
+        </span>
+
+        <ng-container *ngIf="role==='Customer'">
+          <div class="address-select">
+            <button mat-button class="address-button" (click)="toggleAddressSection()"><b>Select Address &#8659;</b></button>
+          </div>
+        
+          <div class="address-section" *ngIf="isAddressSectionOpen">
+            <button mat-button class="close-button" (click)="closeAddressSection()">&#10006;</button>
+            <br>
+            <br>
+            <ng-container *ngIf="!iscurrentLocation">
+              <p>Saved Addresses:</p>
+              <select [(ngModel)] ="selectedAddress"  (ngModelChange)="updateSelectedAddress($event)">
+                <option *ngFor="let address of addresses" [ngValue]="address">
+                  {{ address.address }}
+                </option>
+              </select>
+            </ng-container>
+            <br>
+            <button class="current-button" (click)="toggleCurrLoc()">Select Current Location &#164;</button>
+            <ng-container *ngIf="iscurrentLocation">
+              <app-google-map class="map"></app-google-map>
+              <form [formGroup]="locationForm" (ngSubmit)="addNewAddress()" class="form-container">
+                  <mat-form-field>
+                      <input matInput placeholder="Address" formControlName="address">
+                  </mat-form-field>
+                  <br>
+                  <button mat-raised-button color="primary" [disabled]="locationForm.invalid" type="submit" class="submit-button">Submit</button>
+              </form>
+            </ng-container>
+          </div>
+
+          <div class="backdrop" *ngIf="isAddressSectionOpen" (click)="closeAddressSection()"></div>
+        </ng-container>
+
+        <div class="middle-section">
+
+          <ng-container *ngIf="role === 'Customer'">
+
+            <div class="search-pill">
+              <div class="search-dropdown">
+                <button class="search-dropdown-button">Select Service<mat-icon id="down-arrow">keyboard_arrow_down</mat-icon></button>
+                <div class="search-dropdown-content">
+                  <a href="/doctors">Doctors</a>
+                  <a href="/user-home">Medicines</a>
+                </div>
+              </div>
+              <div class="search-bar" routerLink="/search">
+                <i class="material-icons search-icon">search</i>
+                <span class="search-bar-text">Search Medicines and Stores...</span>
+              </div>
+            </div>
+          </ng-container>
+
+            <ng-container *ngIf="role==='Admin'">
+                <button mat-button class="custom-button" routerLink="/admin-home">Dashboard</button>
+                <button mat-button class="custom-button" routerLink="/admin-customermanagement">Customers</button>
+                <button mat-button class="custom-button" routerLink="/admin-doctormanagement">Doctors</button>
+                <button mat-button class="custom-button" routerLink="/admin-medicalstoremanagement">Medical Stores</button>
+            </ng-container>
+
+            <ng-container *ngIf="role==='Medical Store'">
+              <button mat-button class="custom-button" routerLink="/medicalstore-home">Dashboard</button>
+              <button mat-button class="custom-button" routerLink="/medicalstore-products">Products</button>
+              <button mat-button class="custom-button" routerLink="/medicalstore-orders">Orders</button>
+              <!-- <button mat-button class="custom-button">Doctors</button>
+              <button mat-button class="custom-button">Medical Stores</button> -->
+          </ng-container>
+
+          <ng-container *ngIf="role==='Doctor'">
+            <button mat-button class="custom-button" routerLink="/doctor/home">Dashboard</button>
+            <button mat-button class="custom-button" routerLink="/doctor/slots">Slots</button>
+            <button mat-button class="custom-button" routerLink="/doctor/appointments">Appointments</button>
+          </ng-container>
+        </div>
+         
+        <span class="spacer"></span>
+      
+        <button mat-icon-button [matMenuTriggerFor]="userMenu" style="margin-right: 40px;">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      
+        <mat-menu #userMenu="matMenu">
+            <ng-container *ngIf="role==='Customer'">
+              <div class="user-info">
+                  <span class="text-sm">{{userName}}</span>
+                  <br>
+                  <!-- <span class="text-sm text-gray-500" style="white-space: nowrap;">{{email}}</span> -->
+                </div>
+                <button mat-menu-item routerLink="/user-dashboard">Dashboard</button>
+                <button mat-menu-item>Settings</button>
+                <button mat-menu-item routerLink="/user-login">Logout</button>
+            </ng-container>
+            <ng-container *ngIf="role===''">
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/user-login" routerLinkActive="active">Signin as User</a>
+                    <a mat-list-item routerLink="/doctor/register" routerLinkActive="active">Register as a Doctor</a>
+                    <a mat-list-item routerLink="/medicalstore-register1" routerLinkActive="active">Enlist your medical Store</a>
+                </mat-nav-list>
+            </ng-container>
+
+            <ng-container *ngIf="role==='Admin'">
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/admin-login" routerLinkActive="active">Logout</a>
+                </mat-nav-list>
+            </ng-container>
+            <ng-container *ngIf="role==='Medical Store'">
+              <div class="user-info">
+                  <span class="text-sm">{{userName}}</span>
+                  <br>
+                  <!-- <span class="text-sm text-gray-500" style="white-space: nowrap;">{{email}}</span> -->
+                </div>
+                <button mat-menu-item>Dashboard</button>
+                <button mat-menu-item>Settings</button>
+                <button mat-menu-item routerLink="/medicalstore-login">Logout</button>
+            </ng-container>
+
+            <ng-container *ngIf="role==='Doctor'">
+                <div class="user-info">
+                  <span class="text-sm">{{userName}}</span>
+                  <br>
+                </div>
+                <button mat-menu-item routerLink="/doctor/home">Dashboard</button>
+                <button mat-menu-item>Settings</button>
+                <button mat-menu-item routerLink="/doctor/login">Logout</button>
+            </ng-container>
+            
+        </mat-menu>
+      
+      
+      </mat-toolbar>
+      
+      <!-- <mat-sidenav-container class="sidenav-container" *ngIf="isNavbarOpen">
+          <mat-sidenav #sidenav mode="over" class="sidenav">
+            <mat-nav-list>
+              <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
+              <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
+              <a mat-list-item routerLink="/services" routerLinkActive="active">Services</a>
+              <a mat-list-item routerLink="/pricing" routerLinkActive="active">Pricing</a>
+              <a mat-list-item routerLink="/contact" routerLinkActive="active">Contact</a>
+            </mat-nav-list>
+          </mat-sidenav>
+      
+          <mat-sidenav-content>
+              <div style="display: flex;">
+                <div style="flex: 0 0 250px; background-color: aquamarine;"> 
+                  <mat-nav-list>
+                    <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
+                    <a mat-list-item routerLink="/user-register" routerLinkActive="active">About</a>
+                    <a mat-list-item routerLink="/services" routerLinkActive="active">Services</a>
+                    <a mat-list-item routerLink="/pricing" routerLinkActive="active">Pricing</a>
+                    <a mat-list-item routerLink="/contact" routerLinkActive="active">Contact</a>
+                  </mat-nav-list>
+                </div>
+                <div style="flex: 1;">
+                  <router-outlet></router-outlet>
+                </div>
+              </div>
+            </mat-sidenav-content>
+        </mat-sidenav-container> -->
+      
+        <!-- <mat-sidenav-container class="sidenav-container" *ngIf="isNavbarOpen">
+          <mat-sidenav #sidenav mode="over" class="sidenav" style="height: 100vh;">
+            <mat-nav-list>
+              <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
+              <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
+              <a mat-list-item routerLink="/services" routerLinkActive="active">Services</a>
+              <a mat-list-item routerLink="/pricing" routerLinkActive="active">Pricing</a>
+              <a mat-list-item routerLink="/contact" routerLinkActive="active">Contact</a>
+            </mat-nav-list>
+          </mat-sidenav>
+        
+          <mat-sidenav-content>
+            <div style="display: flex; height: 100vh;">
+              <div style="width: 250px; background-color: #f0f0f0;">
+                <mat-nav-list>
+                  <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
+                  <a mat-list-item routerLink="/user-register" routerLinkActive="active">About</a>
+                  <a mat-list-item routerLink="/services" routerLinkActive="active">Services</a>
+                  <a mat-list-item routerLink="/pricing" routerLinkActive="active">Pricing</a>
+                  <a mat-list-item routerLink="/contact" routerLinkActive="active">Contact</a>
+                </mat-nav-list>
+              </div>
+              <div style="flex: 1;">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+         -->
+</div>

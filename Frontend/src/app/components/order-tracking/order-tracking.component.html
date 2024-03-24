@@ -1,0 +1,58 @@
+<div class="order-tracking-container">
+<div class="order-details-card">
+  <h2>Order Details</h2>
+  <table>
+    <tr>
+      <td><strong>Order ID:</strong></td>
+      <td>{{ order.orderId }}</td>
+    </tr>
+    <tr>
+      <td><strong>Delivery Address:</strong></td>
+      <td>{{ order.deliveryAddress.address }}</td>
+    </tr>
+    <tr>
+      <td><strong>Products:</strong></td>
+      <td>
+        <table>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          <tr *ngFor="let product of order.products">
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productQuantity }}</td>
+            <td>{{ product.price }}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Order Total:</strong></td>
+      <td>{{ order.orderTotal }}</td>
+    </tr>
+    <tr>
+      <td><strong>Order Status:</strong></td>
+      <td>{{ order.orderStatus }}</td>
+    </tr>
+  </table>
+</div>
+
+  <div class="map-card">
+    <h2>Delivery Map</h2>
+    <div class="map-container">
+      <google-map #map [center]="delExecLoc" [zoom]="zoom" [options]="{}">
+        <map-marker
+          [position]="delExecLoc"
+          title="Delivery Executive"
+          icon="https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        ></map-marker>
+        <map-marker
+          [position]="delAddressLoc"
+          title="Delivery Address"
+          icon="https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        ></map-marker>
+      </google-map>
+    </div>
+  </div>
+</div>

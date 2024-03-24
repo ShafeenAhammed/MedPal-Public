@@ -1,0 +1,83 @@
+
+<div class="register">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <mat-card>
+        <mat-card-header>
+          <h1>Doctor Registration</h1>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="mat-50">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput>
+            </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="sex">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            </mat-select>
+        </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>Email</mat-label>
+            <input type="email" formControlName="email" matInput>
+          </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>Mobile</mat-label>
+            <input type="number" formControlName="mobile" matInput>
+          </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>Age</mat-label>
+            <input type="number" formControlName="age" matInput>
+          </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>License</mat-label>
+            <input formControlName="license" matInput>
+          </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label for="licenseFile"><b>License File(PDF/Image)</b></mat-label>
+            <input formControlName="licenseFile" type="file" id="licenseFile" name="licenseFile" (change)="onLicenseFileChange($event)" accept="image/*, application/pdf">
+            <input matInput [value]="licenseFile" readonly>
+        </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label for="doctorImage"><b>Doctor Image</b></mat-label>
+            <input formControlName="doctorImage" type="file" id="doctorImage" name="doctorImage" (change)="onDoctorImageChange($event)" accept="image/*">
+            <input matInput [value]="doctorImage" readonly>
+        </mat-form-field>
+          <!-- <mat-form-field class="mat-50">
+            <mat-label>Specialization</mat-label>
+            <input formControlName="specialization" matInput>
+          </mat-form-field> -->
+          <mat-form-field class="mat-50">
+            <mat-label>Specialization</mat-label>
+            <mat-select formControlName="specialization">
+            <mat-option value="Dermatologist">Dermatologist</mat-option>
+            <mat-option value="Geriatricians">Geriatricians</mat-option>
+            <mat-option value="Pediatrician">Pediatrician</mat-option>
+            <mat-option value="Physician">Physician</mat-option>
+            </mat-select>
+        </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>Current Hospital</mat-label>
+            <input formControlName="currentHospital" matInput>
+          </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>Experience</mat-label>
+            <input type="number" formControlName="experience" matInput>
+          </mat-form-field>
+          <mat-form-field class="mat-50">
+            <mat-label>Fees</mat-label>
+            <input type="number" formControlName="fees" matInput>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="div-50">
+            <button type="submit" color="primary" mat-raised-button [disabled]="registerForm.invalid">Register</button>
+          </div>
+        </mat-card-actions>
+        <div class="div-50">
+          <a routerLink="/doctor/login" color="accent" mat-button>Already a doctor?</a>
+        </div>
+      </mat-card>
+    </form>
+  </div>
+  

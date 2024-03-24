@@ -1,0 +1,25 @@
+<div class="register">
+    <mat-card class="card-container">
+        <div class="center-content">
+            <br>
+            <app-google-map></app-google-map>
+            <form [formGroup]="page2Form" (ngSubmit)="submit()" class="form-container">
+                <mat-form-field>
+                    <input matInput placeholder="Address" formControlName="address">
+                </mat-form-field>
+                <mat-form-field>
+                    <label for="storeImage"><b>Upload Store Image</b></label>
+                    <input type="file" id="storeImage" name="storeImage" (change)="onStoreImgSelected($event)" accept="image/*">
+                    <input matInput [value]="storeImgFileName" readonly>
+                </mat-form-field>
+                <mat-form-field>
+                    <Label for="licenseFile"><b>Upload License File (PDF/Image)</b></Label>
+                    <input type="file" id="licenseFile" name="licenseFile" (change)="onLicenseSelected($event)" accept="image/*, application/pdf">
+                    <input matInput [value]="licenseFileName" readonly>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </mat-card>
+    
+</div>

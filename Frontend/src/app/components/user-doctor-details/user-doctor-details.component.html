@@ -1,0 +1,73 @@
+<div class="doctor-profile">
+  
+  <div class="profile-info">
+    <div class="info-left">
+      <img [src]="[doctorDetails?.doctorImage]" alt="[Doctor Name] - Image">
+    </div>
+    <div class="info-right">
+      <h2>{{ doctorDetails.name }}</h2>
+      <p class="details">{{ doctorDetails.specialization }}</p>
+      <p class="details">Age: {{ doctorDetails.age }}</p>
+      <p class="details">Experience: {{ doctorDetails.experience }} years</p>
+      <p class="details">License: {{ doctorDetails.license }}</p>
+      <p class="details">Current Hospital: {{ doctorDetails.currentHospital }}</p>
+      <p class="details">Fees: RS.{{ doctorDetails.fees }}</p>
+    </div>
+    <p class="bio">{{ doctorDetails.about }}</p>
+  </div>
+  
+
+ 
+  <div class="tabs">
+    <button (click)="onSectionSelected('about')" [class.active]="selectedSection === 'about'">About</button>
+    <button (click)="onSectionSelected('slots')" [class.active]="selectedSection === 'slots'">Slots</button>
+    <!-- <button (click)="onSectionSelected('clinic')" [class.active]="selectedSection === 'clinic'">Clinic Location</button> -->
+  </div>
+
+ 
+  <div class="tab-content">
+
+    <div *ngIf="selectedSection === 'about'">
+      <p style="text-align: justify;">{{doctorDetails.name}} is a seasoned {{doctorDetails.specialization}}, who has an experience of {{doctorDetails.experience}}, currently working in {{doctorDetails.currentHospital}}. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae tempore blanditiis, quas officia doloribus molestias debitis facere iste, ea nemo voluptatibus nulla in quae tempora eligendi veniam velit mollitia doloremque.</p>
+    </div>
+
+    <div *ngIf="selectedSection === 'slots'">
+
+      <div class="center-container">
+        <div class="calendar-container">
+          <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="showSlotsForDay($event.value)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker touchUi></mat-datepicker>
+          </mat-form-field>
+      
+          <div class="slots-container" *ngIf="slotsForSelectedDay?.length">
+            <div class="slots-list">
+              <h3>Available Slots for {{ selectedDate | date: 'longDate' }}</h3>
+              <ul>
+                <ng-container *ngFor="let slot of slotsForSelectedDay">
+                  <li *ngIf="!slot.isBooked" (click)="bookSlot(slot)">
+                    <div class="slot-details">
+                      <span class="slot-time">{{ slot.startTime | date: 'shortTime' }} - {{ slot.endTime | date: 'shortTime' }}</span>
+                      <span class="slot-status" [ngClass]="{'booked': slot.isBooked, 'available': !slot.isBooked}">
+                        {{ slot.isBooked ? 'Booked' : 'Available' }}
+                      </span>
+                    </div>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+          </div>
+          <div *ngIf="!slotsForSelectedDay?.length" class="no-slots">
+            <p>No slots available for {{ selectedDate | date: 'longDate' }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="selectedSection === 'clinic'">
+      <h2>Clinic Location</h2>
+    </div>
+  </div>
+</div>

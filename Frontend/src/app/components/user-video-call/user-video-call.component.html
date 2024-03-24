@@ -1,0 +1,23 @@
+ 
+  <div class="room">
+    <div id="videos">
+      <video class="video-player" id="localStream" #localVideo autoplay playsinline style="border: 2px red solid;"></video>
+      <video class="video-player" id="remoteStream" #remoteVideo autoplay playsinline></video>
+    </div>
+    
+    <div class="btn-grp">
+      <button mat-fab color="primary" (click)="toggleMic()">
+        <mat-icon>{{ isMicMuted ? 'mic_off' : 'mic' }}</mat-icon>
+      </button>
+      
+      <button mat-fab color="warn" (click)="endCall()">
+        <mat-icon>call_end</mat-icon>
+      </button>
+    
+      <button mat-fab color="primary" (click)="toggleCamera()">
+        <mat-icon>{{ isCameraOn ? 'videocam_off' : 'videocam' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  

@@ -1,0 +1,94 @@
+.doctor-profile {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-right: 60px;
+  margin-top: 10px;
+  margin-left: 10px; 
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.specialization {
+  font-size: 18px;
+  color: #888;
+}
+
+.details, .bio {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.appointments-section {
+  margin-top: 20px;
+}
+
+.box {
+  width: calc(50% - 20px);
+  height: 160px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.box h2 {
+  margin-top: 0;
+}
+
+.box p {
+  margin: 10px 0;
+}
+
+.nil-box {
+  width: calc(50% - 20px);
+  height: 160px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}

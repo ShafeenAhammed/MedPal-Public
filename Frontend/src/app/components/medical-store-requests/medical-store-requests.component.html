@@ -1,0 +1,10 @@
+<app-table [dataSource]="data" [displayedColumns]="columns" [route]="route"
+(decisionEvent)="medStoreReqDecision($event.email, $event.applicationStatus)" (getLicenseFileEvent)="getLicenseFile($event.licenseFile)">
+</app-table>
+
+<!-- <ng-container *ngIf="data$ | async as data">
+    <app-table [dataSource]="data" [displayedColumns]="columns" [route]="route"
+               (buttonClick1)="handleButtonClick1($event)"
+               (buttonClick2)="handleButtonClick2($event)">
+    </app-table>
+</ng-container> -->

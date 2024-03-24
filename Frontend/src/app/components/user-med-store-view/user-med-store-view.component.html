@@ -1,0 +1,101 @@
+<div class="details-section">
+  <h2>{{storeName}}</h2>
+  <p><b>Address:</b> {{storeAddress}}</p>
+
+
+  <div class="border"></div>
+
+</div>
+
+<div class="main-section">
+  <div class="category-section">
+    <h2 class="category-title">Antibiotics</h2>
+    <div class="products-container">
+      <mat-card *ngFor="let product of antibiotics" class="product-card">
+        <mat-card-header>
+          <mat-card-title>{{ product.productName }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="product.productImages" alt="{{ product.productName }} Image" class="resized-img">
+        <mat-card-content>
+          <p class="product-description">{{ product.description }}</p>
+          <div class="price-stock-container">
+            <p class="product-price">Price: Rs{{ product.price }}</p>
+            <div style="padding-bottom: 10px;">
+              <ng-container *ngIf="getAddToCartLabel(product) !== 'Add'">
+                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" (click)="removeFromCart(product)">-</button>
+                <span style="padding:5px ;">{{ addToCartCounts[product.productName] }}</span>
+                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" (click)="addToCart(product)">+</button>
+              </ng-container>
+              <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" *ngIf="getAddToCartLabel(product) === 'Add'" (click)="addToCart(product)">
+                {{ getAddToCartLabel(product) }}
+              </button>             
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div class="category-section">
+    <h2 class="category-title">Skin and Hair Care</h2>
+    <div class="products-container">
+      <mat-card *ngFor="let product of skinAndHairCare" class="product-card">
+        <mat-card-header>
+          <mat-card-title>{{ product.productName }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="product.productImages" alt="{{ product.productName }} Image" class="resized-img">
+        <mat-card-content>
+          <p class="product-description">{{ product.description }}</p>
+          <div class="price-stock-container">
+            <p class="product-price">Price: {{ product.price }}</p>
+            <div style="padding-bottom: 10px;">
+              <ng-container *ngIf="getAddToCartLabel(product) !== 'Add'">
+                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" (click)="removeFromCart(product)">-</button>
+                <span style="padding:5px ;">{{ addToCartCounts[product.productName] }}</span>
+                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" (click)="addToCart(product)">+</button>
+              </ng-container>
+              <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" *ngIf="getAddToCartLabel(product) === 'Add'" (click)="addToCart(product)">
+                {{ getAddToCartLabel(product) }}
+              </button>             
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div class="category-section">
+    <h2 class="category-title">Health Supplements</h2>
+    <div class="products-container">
+      <mat-card *ngFor="let product of healthSupplements" class="product-card">
+        <mat-card-header>
+          <mat-card-title>{{ product.productName }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="product.productImages" alt="{{ product.productName }} Image" class="resized-img">
+        <mat-card-content>
+          <p class="product-description">{{ product.description }}</p>
+          <div class="price-stock-container">
+            <p class="product-price">Price: {{ product.price }}</p>
+            <div style="padding-bottom: 10px;">
+              <ng-container *ngIf="getAddToCartLabel(product) !== 'Add'">
+                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" (click)="removeFromCart(product)">-</button>
+                <span style="padding:5px ;">{{ addToCartCounts[product.productName] }}</span>
+                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" (click)="addToCart(product)">+</button>
+              </ng-container>
+              <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" *ngIf="getAddToCartLabel(product) === 'Add'" (click)="addToCart(product)">
+                {{ getAddToCartLabel(product) }}
+              </button>             
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div *ngIf="showViewCartButton" class="view-cart-button-container">
+    <button *ngIf="showViewCartButton" id="view-cart-button-container" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" routerLink="/cart">
+      View Cart
+    </button> 
+  </div>
+  
+</div>

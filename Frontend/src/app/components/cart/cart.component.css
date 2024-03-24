@@ -1,0 +1,155 @@
+
+.container {
+    display: flex;
+    /* justify-content: space-between; */
+    margin: 20px; 
+  }
+  
+  .cart-section {
+    width: 50%;
+    padding-right: 30px;
+    padding-top: 22px;
+  }
+  
+  .cart-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .product-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .quantity-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-btn {
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .quantity-display {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  
+  .card-section {
+    width: 35%;
+    padding-left: 50px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 14px;
+  }
+  
+
+.cart-details {
+    margin-top: 15px;
+  }
+  
+  .cart-item-details {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .cart-item-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .cart-item-price,
+  .cart-item-quantity,
+  .cart-item-total {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .cart-subtotal {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .subtotal-label,.address-label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .subtotal-value,.address-value {
+    font-size: 16px;
+  }
+  
+  .cart-address {
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #payment-btn{
+    /* padding-top: 5px; */
+    width: 100%;
+  }
+
+  .empty-cart-message {
+    width: 400px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    /* border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  */
+}
+
+.empty-cart-message p {
+    font-size: 24px;
+    color: #555; 
+    margin-bottom: 20px;
+}
+
+#continue-shopping-btn {
+    padding: 12px 24px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+

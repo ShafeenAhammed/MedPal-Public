@@ -1,0 +1,16 @@
+.dashboard-container {
+    display: flex;
+  }
+  
+  app-sidebar {
+    width: 400px; 
+    background-color: #f0f0f0; 
+    padding: 10px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); 
+  }
+  
+  router-outlet {
+    /* flex: 1;  */
+    padding: 10px;
+  }
+  

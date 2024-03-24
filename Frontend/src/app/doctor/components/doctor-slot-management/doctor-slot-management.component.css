@@ -1,0 +1,109 @@
+.availability-form {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: inline-block;
+  width: 23%;
+  padding-inline: 10px; 
+}
+
+#select-form {
+  width: 100%;
+  margin-top: 32px; 
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px; 
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* .increased-height {
+  padding: 30px; 
+} */
+
+.btn-group {
+  width: 100%;
+  text-align: center;
+}
+
+.btn-primary {
+  padding: 12px 20px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+  
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  overflow-y: auto; 
+}
+
+.calendar-container {
+  background-color: #f9f9f9; 
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px; 
+  width: 80%;
+}
+
+.slots-list {
+  background-color: #fff; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  padding: 20px; 
+}
+
+.slot-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+}
+
+.slot-status {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.booked {
+  background-color: #ff6b6b; 
+}
+
+.available {
+  background-color: #4caf50;
+}
+
+.no-slots {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #777;
+}

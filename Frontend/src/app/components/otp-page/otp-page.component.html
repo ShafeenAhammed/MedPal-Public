@@ -1,0 +1,25 @@
+
+<div class="flex items-center justify-center h-screen">
+  <form class="flex flex-col items-center relative overflow-hidden p-6 bg-gradient-to-r from-blue-700 to-blue-900 rounded-lg shadow-md max-w-md" [formGroup]="otpForm" (ngSubmit)="verify()">
+
+    <div class="mb-4">
+      <span class="text-white text-2xl font-extrabold leading-7 tracking-tight flex items-center justify-center">OTP Verification</span>
+      <p class="text-white mt-2 text-sm">Please enter the code we have sent you.</p>
+    </div>
+
+    <div class="flex justify-between gap-4">
+      <mat-form-field>
+        <input formControlName="otp" matInput placeholder="Enter OTP" type="tel" maxlength="4" class="h-10 w-10 text-center text-white text-xl border-1 border-white border-opacity-40 bg-opacity-5 rounded-md focus:border-blue-500">
+      </mat-form-field>
+    </div>
+
+    <button mat-button class="flex items-end justify-end text-white text-sm font-semibold bg-blue-700 p-2 mt-2 rounded-lg transition duration-300 hover:bg-blue-800" type="submit" >
+      Verify
+    </button>
+    <br>
+    <div id="countdown">Resend OTP in {{ counterTime }}</div>
+    <br>
+    <!-- <p class="text-white mt-2 text-sm text-center">You don't receive the code? <a href="#" class="text-white font-semibold cursor-pointer" [ngClass]="{ 'hover:underline': counterTime <= 0 }" [class.disabled]="counterTime > 0" (click)="resendOtp">Resend</a></p> -->
+    <p class="text-white mt-2 text-sm text-center">You don't receive the code? <b [ngClass]="{ 'hover:underline, cursor-pointer': counterTime <= 0 }" (click)="resendOtp()">Resend</b></p>
+  </form>
+</div>

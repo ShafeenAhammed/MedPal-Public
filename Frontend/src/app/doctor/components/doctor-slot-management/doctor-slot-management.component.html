@@ -1,0 +1,72 @@
+
+<h1 style="margin: 1% 10%; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Set Slots</h1>
+
+<form class="availability-form" (ngSubmit)="generateAppointmentSlots()">
+    <div class="form-group">
+        <mat-form-field id="select-form">
+          <mat-label>Days of the Week</mat-label>
+          <mat-select id="daysOfWeek" [(ngModel)]="selectedDays" name="daysOfWeek" multiple>
+            <mat-option value="Mon">Monday</mat-option>
+            <mat-option value="Tue">Tuesday</mat-option>
+            <mat-option value="Wed">Wednesday</mat-option>
+            <mat-option value="Thu">Thursday</mat-option>
+            <mat-option value="Fri">Friday</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+  
+    <div class="form-group">
+      <label for="startTime">Start Time:</label>
+      <input type="time" id="startTime" [(ngModel)]="startTime" name="startTime" class="form-control increased-height" />
+    </div>
+  
+    <div class="form-group">
+      <label for="endTime">End Time:</label>
+      <input type="time" id="endTime" [(ngModel)]="endTime" name="endTime" class="form-control increased-height" />
+    </div>
+  
+    <div class="form-group">
+      <label for="slotDuration">Slot Duration (minutes):</label>
+      <input type="number" id="slotDuration" [(ngModel)]="slotDuration" name="slotDuration" class="form-control increased-height" />
+    </div>
+  
+    <div class="form-group btn-group">
+      <button type="submit" class="btn btn-primary">Generate Slots</button>
+    </div>
+  </form>
+  
+  
+  <!-- <h1 style="margin-top: 10%; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">View Slots</h1>  -->
+  <div class="center-container">
+    <div class="calendar-container">
+      <mat-form-field appearance="outline">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="showSlotsForDay($event.value)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker touchUi></mat-datepicker>
+      </mat-form-field>
+  
+      <div class="slots-container" *ngIf="slotsForSelectedDay?.length">
+        <div class="slots-list">
+          <h3>Available Slots for {{ selectedDate | date: 'longDate' }}</h3>
+          <ul>
+            <li *ngFor="let slot of slotsForSelectedDay">
+              <div class="slot-details">
+                <span class="slot-time">{{ slot.startTime | date: 'shortTime' }} - {{ slot.endTime | date: 'shortTime' }}</span>
+                <span class="slot-status" [ngClass]="{'booked': slot.isBooked, 'available': !slot.isBooked}">
+                  {{ slot.isBooked ? 'Booked' : 'Available' }}
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      <div *ngIf="!slotsForSelectedDay?.length" class="no-slots">
+        <p>No slots available for {{ selectedDate | date: 'longDate' }}</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  

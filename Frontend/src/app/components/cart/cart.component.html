@@ -1,0 +1,51 @@
+
+
+   <div class="container">
+    <ng-container *ngIf="cartProducts.length > 0; else emptyCart">
+        <div class="cart-section">
+            <div class="cart-item" *ngFor="let product of cartProducts">
+                <div class="product-name">{{ product.productName }}</div>
+                <div class="quantity-container">
+                    <button (click)="removeFromCart(product)" class="quantity-btn bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm">-</button>
+                    <span class="quantity-display">{{ product.productQuantity }}</span>
+                    <button (click)="addToCart(product)" class="quantity-btn bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Shopping Cart</h5>
+                    <div class="cart-details">
+                        <div class="cart-address">
+                            <span class="address-label">Delivery Address:</span>
+                            <span class="address-value">{{ address.address }}</span>
+                        </div>
+                        <div *ngFor="let item of cartProducts">
+                            <div class="cart-item-details">
+                                <span class="cart-item-name">{{ item.productName }}</span>
+                                <span class="cart-item-price">Price: {{ item.price }}</span>
+                                <span class="cart-item-quantity">Quantity: {{ item.productQuantity }}</span>
+                                <span class="cart-item-total">Total: {{ item.price * item.productQuantity }}</span>
+                            </div>
+                        </div>
+                        <div class="cart-subtotal">
+                            <span class="subtotal-label">Subtotal:</span>
+                            <span class="subtotal-value">{{ calculateSubtotal() }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button id="payment-btn" (click)="makePayment()" class="quantity-btn bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm">Make Payment</button>
+        </div>
+    </ng-container>
+
+    <ng-template #emptyCart>
+        <div class="empty-cart-message">
+            <p>Cart is Empty!</p>
+            <button id="continue-shopping-btn" class="quantity-btn bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-2 border-blue-700 hover:border-blue-500 rounded text-sm" routerLink="/user-home">Continue Shopping</button>
+        </div>
+    </ng-template>
+</div>

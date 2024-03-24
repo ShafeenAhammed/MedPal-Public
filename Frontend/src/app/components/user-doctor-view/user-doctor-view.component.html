@@ -1,0 +1,30 @@
+<div class="banner">
+  <img src="../../../assets/images/doc assist.jpg" alt="Doctor Assistance Banner">
+</div>
+
+<div class="container">
+  <h1>Find Doctors</h1>
+
+  <div class="filter-section">
+    <label for="specialization"><u>Select Specialization:</u></label>
+    <select id="specialization" [(ngModel)]="selectedSpecialization" (change)="filterDoctorsBySpecialization()">
+      <option value="">All Specializations</option>
+      <option *ngFor="let spec of specialities" [value]="spec">
+        {{ spec }}
+      </option>
+    </select>
+  </div>
+
+  <div class="doctors-list">
+    <div *ngFor="let doctor of doctors" class="doctor-card" [routerLink]="['/doctor-details']" [queryParams]="{ doctorId: doctor.doctorId }">
+      <div class="doctor-img">
+        <img src="{{ doctor.doctorImage }}" alt="{{ doctor.name }}">
+      </div>
+      <div class="doctor-info">
+        <p>{{ doctor.name }} - {{ doctor.specialization }}</p>
+        <p>Experience: {{ doctor.experience }}</p>
+        <p>Hospital: {{ doctor.currentHospital }}</p>
+      </div>
+    </div>
+  </div>
+</div>

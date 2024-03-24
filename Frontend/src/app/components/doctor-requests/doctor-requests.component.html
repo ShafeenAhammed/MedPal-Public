@@ -1,0 +1,3 @@
+<app-table [dataSource]="data" [displayedColumns]="columns" [route]="route"
+(decisionEvent)="doctorReqDecision($event.email, $event.applicationStatus)" (getLicenseFileEvent)="getLicenseFile($event.licenseFile)">
+</app-table>

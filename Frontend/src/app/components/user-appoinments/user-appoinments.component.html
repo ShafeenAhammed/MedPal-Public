@@ -1,0 +1,21 @@
+<div class="order-cards-container">
+    <div *ngFor="let app of appoinments" class="order-card">
+        <div class="order-summary">
+            <div class="order-id">
+                <p><strong>Appoinment ID:</strong> {{ app.appoinmentId }}</p>
+                <p><strong>Doctor Name:</strong> {{ app.doctorName }}</p>
+                <p><strong>Appoinment Status:</strong> {{ app.appoinmentStatus }}</p>
+
+            </div>
+            <div class="order-date-total">
+                <p><strong>Start Time</strong> {{ app.timeSlot.startTime | date:'short' }}</p>
+                <p><strong>End Time</strong> {{ app.timeSlot.endTime | date:'short' }}</p>
+                <p><strong>Fees:</strong> Rs.{{ app.fees }}</p>
+               
+                <button mat-raised-button color="primary" *ngIf="app.appoinmentStatus === 'Pending' && isCallTime(app)" [routerLink]="['/patient-videocall']" [queryParams]="{ appoinmentId: app.appoinmentId,name:app.customerName}">Start Call</button>
+                
+                <button mat-raised-button color="primary" *ngIf="app.appoinmentStatus === 'Pending' && isCallEndTime(app)" (click)="completeAppointment(app.appoinmentId)">Complete</button>
+            </div>
+        </div>
+    </div>
+</div>

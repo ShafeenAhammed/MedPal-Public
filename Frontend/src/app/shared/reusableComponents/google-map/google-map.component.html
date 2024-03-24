@@ -1,0 +1,15 @@
+<div class="map-container">
+  <google-map #map [center]="center" [zoom]="zoom" [options]="{}" (mapClick)="onMapClick($event)">
+    <!-- Add markers, info windows, or other map elements here -->
+    <map-marker
+      [position]="center"
+      title="Current Location"
+      icon="https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    ></map-marker>
+
+  </google-map>
+
+  <button mat-icon-button class="custom-button" (click)="requestLocation()">
+    <mat-icon>my_location</mat-icon>
+  </button>
+</div>

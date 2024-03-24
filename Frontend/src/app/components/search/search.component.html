@@ -1,0 +1,29 @@
+<div class="search-container">
+    <input type="text" id="search" [formControl]="searchControl" placeholder="Search for medicines or medical stores...">
+  
+    <div *ngIf="productResults.length > 0" class="result-section">
+      <h3>Matching Medicines</h3>
+      <div *ngFor="let result of productResults" class="result-card product-card" (click)="onSelect(result)">
+        <h4>{{ result.productName }}</h4>
+        <p class="description">{{ result.description }}</p>
+        <p class="store-info">Medical Store: {{ result.storeName }}</p>
+      </div>
+    </div>
+  
+    <div *ngIf="productResults.length === 0 && searchControl?.value?.trim() !== ''" class="no-results-message">
+      <b>No matching products found.</b>
+    </div>
+  
+    <div *ngIf="storeResults.length > 0" class="result-section">
+      <h3>Matching Stores</h3>
+      <div *ngFor="let result of storeResults" class="result-card store-card" (click)="onSelect(result)">
+        <h4>{{ result.storeName }}</h4>
+        <p class="address">{{ result.address?.address }}</p>
+      </div>
+    </div>
+  
+    <div *ngIf="storeResults.length === 0 && searchControl?.value?.trim() !== ''" class="no-results-message">
+      <b>No matching stores found.</b> 
+    </div>
+  </div>
+  

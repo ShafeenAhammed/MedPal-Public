@@ -1,0 +1,47 @@
+<div class="order-details-container">
+    <div class="order-details-card">
+      <h2>Order Details</h2>
+      <table>
+        <tr>
+          <td><strong>Order ID:</strong></td>
+          <td>{{ orderDetails.orderId }}</td>
+        </tr>
+        <tr>
+          <td><strong>Delivery Address:</strong></td>
+          <td>{{ orderDetails.deliveryAddress.address }}</td>
+        </tr>
+        <tr>
+          <td><strong>Products:</strong></td>
+          <td>
+            <table>
+              <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+              <tr *ngFor="let product of orderDetails.products">
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productQuantity }}</td>
+                <td>{{ product.price }}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Order Total:</strong></td>
+          <td>Rs.{{ orderDetails.orderTotal }}</td>
+        </tr>
+        <tr>
+          <td><strong>Order Status:</strong></td>
+          <td>
+            <select id="orderStatus" [(ngModel)]="orderStatus" name="orderStatus">
+              <option value="Transit">Transit</option>
+              <option value="Delivered">Delivered</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <button (click)="updateOrderStatus(orderStatus)">Update Order Status</button>
+    </div>
+  </div>
+  

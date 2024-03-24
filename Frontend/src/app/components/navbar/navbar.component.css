@@ -1,0 +1,265 @@
+
+.mat-toolbar {
+  box-shadow: 12px 10px 20px 6px rgba(0, 0, 0, 0.1);
+  height: 80px; 
+  padding: 0 20px; 
+  transition: background-color 0.5s;
+}
+
+.mat-toolbar:hover {
+  background-color: #1f8ab1; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .user-info {
+    padding: 8px;
+  }
+  
+  .sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 250px;
+  }
+  
+  .active {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  
+  .middle-section {
+    display: flex;
+    gap: 20px; 
+    align-items: center; 
+    margin-left: 400px;
+  }
+
+  .custom-button {
+    font-size: 16px; 
+    padding: 10px 20px;
+  }
+
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+
+.address-select {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  padding-left: 20px;
+}
+
+.address-button {
+  /* background-color: rgb(59 130 246); */
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.address-section {
+  /* border: 10px red solid; */
+  color: black;
+  z-index: 2000;
+  position: fixed;
+  /* top: 62px; */
+  top: 0;
+  left: 0;
+  width: 550px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(0%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.close-button{
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  background-color: #e9e1e1;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+.current-button {
+  background-color: #e9e1e1;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  /* font-size: 26px; */
+}
+
+.address-section.show {
+  transform: translateX(0);
+}
+
+.address-section p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.address-section select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.address-section button {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.address-select, .custom-button, .address-section {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+.close-button:hover, .address-section button:hover {
+  background-color: #fffffe;
+}
+
+app-google-map {
+  /* margin-bottom: -170px; */
+  & > * {
+    margin-bottom: -190px;
+  }
+}
+
+.form-container {
+  width: 100%; 
+  max-width: 500px; 
+  padding-bottom: 10px;
+  /* border: 2px black solid; */
+}
+
+.submit-button {
+  width: 100%; 
+  max-width: 200px;
+}
+
+mat-form-field {
+  width: 100%; 
+  margin-bottom: 15px; 
+}
+
+input {
+  width: calc(100% - 20px); 
+  border: 1px solid #000000; 
+  padding: 10px; 
+}
+
+.search-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 30px;
+  padding: 5px 20px;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: text;
+  border: 1px solid #ccc;
+  margin-left: -100px;
+}
+
+.search-pill .search-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.search-pill .search-dropdown-button {
+  background-color: transparent;
+  border-right: 1px solid rgb(128, 128, 128);
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 16px; 
+  color: #888;
+  outline: none;
+}
+
+.search-pill .search-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 135px;
+  z-index: 1;
+  border-radius: 8px;
+  margin-top: -5px;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.1), 2px 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-pill .search-dropdown-content a {
+  display: block;
+  padding: 8px; 
+  text-decoration: none;
+  color: #444;
+  font-size: 14px; 
+}
+
+.search-pill .search-dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+.search-pill .search-dropdown:hover .search-dropdown-content {
+  display: block;
+}
+
+.search-pill .search-bar {
+  position: relative;
+  padding: 0 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-pill .search-bar-text {
+  font-size: 16px;
+  color: #888;
+}
+
+.search-pill .search-icon {
+  position: absolute;
+  top: 20%;
+  /* right: 1px; */
+  transform: translateX(-98%);
+  color: #888;
+}
+
+#down-arrow {
+  /* position: absolute; */
+  /* top: 20%; */
+  /* right: 1px; */
+  transform: translateX(8%);
+  transform: translateY(30%);
+  color: #888;
+}
+

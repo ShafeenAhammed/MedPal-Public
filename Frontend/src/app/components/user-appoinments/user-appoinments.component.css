@@ -1,0 +1,64 @@
+.order-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .order-card {
+    width: 900px;
+    /* height: 180px; */
+    margin: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .order-id,
+  .order-details {
+    flex: 1;
+  }
+  
+  .order-details-dropdown {
+    text-align: center;
+  }
+  
+  /* .order-details-dropdown button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+
+  mat-icon {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .order-drop-details {
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  

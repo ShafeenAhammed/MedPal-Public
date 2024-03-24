@@ -1,0 +1,39 @@
+<div class="register">
+    <form [formGroup]="page1Form" (ngSubmit)="nextPage()">
+        <mat-card>
+            <mat-card-header>
+                <h1>Medical Store Registeration</h1>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-form-field class="mat-50">
+                    <mat-label>Store Name</mat-label>
+                    <input formControlName="storeName" matInput>
+                </mat-form-field>
+                <mat-form-field class="mat-50">
+                    <mat-label>Owner Name</mat-label>
+                    <input formControlName="ownerName" matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Store License Number</mat-label>
+                    <input formControlName="license" matInput>
+                </mat-form-field>
+                <mat-form-field class="mat-50">
+                    <mat-label>Email</mat-label>
+                    <input type="email" formControlName="email" matInput>
+                </mat-form-field>
+                <mat-form-field class="mat-50">
+                    <mat-label>Mobile</mat-label>
+                    <input type="number" formControlName="mobile" matInput>
+                </mat-form-field>              
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="div-50">
+                     <button type="submit" color="primary" mat-raised-button [disabled]="page1Form.invalid">Next page</button>
+                </div>
+            </mat-card-actions>
+            <div class="div-50">
+                <a routerLink="/medicalstore-login" color="accent" mat-button>Already a registered?</a>
+           </div>
+        </mat-card>
+    </form>
+</div>

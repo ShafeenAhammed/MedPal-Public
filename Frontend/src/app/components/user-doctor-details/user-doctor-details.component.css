@@ -1,0 +1,129 @@
+.doctor-profile {
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 20px;
+  margin-top: 80px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.profile-info img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-right: 60px; 
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.specialization {
+  font-size: 18px;
+  color: #888;
+}
+
+.details, .bio {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.tabs button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 12px 24px;
+  margin: 0 10px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.tabs button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.tab-content {
+  text-align: center;
+}
+
+/* .tab-content > div {
+  display: none;
+} */
+
+.tab-content > div.show {
+  display: block;
+}
+
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  overflow-y: auto; 
+}
+
+.calendar-container {
+  background-color: #f9f9f9; 
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px; 
+  width: 80%;
+}
+
+.slots-list {
+  background-color: #fff; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  padding: 20px; 
+}
+
+.slot-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.slot-status {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.booked {
+  background-color: #ff6b6b; 
+}
+
+.available {
+  background-color: #4caf50;
+}
+
+.no-slots {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #777;
+}
