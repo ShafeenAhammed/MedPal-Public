@@ -1,28 +1,32 @@
 # MedPal
 
+A medical platform using MEAN stack and Microservices architecture. The platform simplifies
+medication procurement by connecting users with nearby pharmacies for doorstep delivery. Additionally,
+it offers remote access to healthcare through video consultations with doctors.
+
+    • Implemented video call feature for online doctor consultation made using WebRTC
+
+    
+    • Containerized each service and deployed it in GCP
+    
+    • Used Github Actions to streamline the process of building images and pushing it to Google
+    Artifact Registry
+    
+    • Technologies Used: Microservices, Angular, Express.js, Node.js, MongoDB, NGRX ,WebRTC,    
+    Socket.IO, Docker,Kafka, Axios, JWT, NGINX, GCP
+
 ## Technologies Used
 
-Technologies used:
-Angular ![Angular Icon](https://cdn.jsdelivr.net/npm/@angular/material/assets/icons/angular.svg), 
-Node.js ![Node.js Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/node-dot-js.svg), 
-Express.js ![Express.js Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/express.svg), 
-MongoDB ![MongoDB Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/mongodb.svg), 
-Socket.io ![Socket.io Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/socket-dot-io.svg), 
-WebRTC ![WebRTC Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/webrtc.svg), 
-Kafka ![Kafka Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/apachekafka.svg), 
-Docker ![Docker Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/docker.svg), 
-NGRX ![NGRX Icon](https://cdn.jsdelivr.net/npm/simple-icons/icons/angular.svg)
+Technologies used: 
 
-## Getting Started
+Angular <i class="fab fa-angular" style="color: red; font-size: 20px;"></i> 
+Node.js <i class="fab fa-node-js" style="color: green; font-size: 20px;"></i> 
+Express.js <i class="fab fa-node-js" style="color: green; font-size: 20px;"></i> 
+MongoDB <i class="fab fa-envira" style="color: green; font-size: 20px;"></i> 
+Socket.io <i class="fab fa-node-js" style="color: green; font-size: 20px;"></i> 
+WebRTC <i class="fab fa-webrtc" style="color: blue; font-size: 20px;"></i> 
+Kafka <i class="fab fa-kafka" style="color: black; font-size: 20px;"></i> 
+Docker <i class="fab fa-docker" style="color: blue; font-size: 20px;"></i> 
+NGRX <i class="fab fa-angular" style="color: red; font-size: 20px;"></i>
 
-To get started with this project, follow these steps:
 
-1. Clone this repository.
-2. Install dependencies by running `npm install`.
-3. Start the development server using `npm start`.
-
-Feel free to explore the project further and contribute!
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
