@@ -11,9 +11,6 @@ it offers remote access to healthcare through video consultations with doctors.
     
     • Used Github Actions to streamline the process of building images and pushing it to Google
     Artifact Registry
-    
-    • Technologies Used: Microservices, Angular, Express.js, Node.js, MongoDB, NGRX ,WebRTC,    
-    Socket.IO, Docker,Kafka, Axios, JWT, NGINX, GCP
 
 ## Technologies Used
 
